@@ -12,7 +12,7 @@
 (function() {
 	'use strict';
 	(function () {
-		var soundAccept = new Audio('/sounds/done.wav/');
+		var soundAccept = new Audio('https://github.com/BJIAST/SATC/blob/master/sounds/done.wav');
 		var site = location.href,
 		steamsite = location.href.split("trade/");
 		if (document.referrer == "http://cs.money/"){
