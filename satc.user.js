@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         AutoTrade Confirm
 // @namespace    https://github.com/BJIAST/SATC/
-// @version      1.41
+// @version      1.42
 // @description  try to take over the world!
 // @author       BJIAST
 // @match        https://steamcommunity.com/tradeoffer/*
@@ -40,6 +40,9 @@
 		}
 
 	}
+	else if (site == websendoff[0] + "tradeoffer/new" + websendoff[1]){
+		console.log("Do nothing!");
+	}
 	else if (jQuery("#your_slot_0 .slot_inner").html() == ''){
 		acceptSteamTrade();
 	}
@@ -48,9 +51,6 @@
 		setTimeout(function(){
 			window.close();
 		}, 3000);
-	}
-	else if (site == websendoff[0] + "tradeoffer/new" + websendoff[1]){
-		console.log("Do nothing!");
 	}
 	else if(document.referrer == "https://opskins.com/?loc=sell"){
 		acceptSteamTrade();
@@ -63,7 +63,7 @@
 		setInterval(function(){
 			if (jQuery('.newmodal_content div').html() == "Для завершения обмена подтвердите его на странице подтверждений в мобильном приложении Steam."){
 				window.close();
-				console.log("Должен закрыть страницу!");
+				soundAccept.play();
 				chromemes("Подтверди оффер в телефоне!");
 
 			}else{
