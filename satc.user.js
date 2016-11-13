@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         AutoTrade Confirm
 // @namespace    https://github.com/BJIAST/SATC/
-// @version      1.1
+// @version      1.2
 // @description  try to take over the world!
 // @author       BJIAST
 // @match        https://steamcommunity.com/tradeoffer/*
@@ -16,10 +16,25 @@
 	site = location.href,
 	steamsite = location.href.split("trade/");
 
+	// chrome messages
+	function chromemes(mesbody){
+		var currentPermission;
+		Notification.requestPermission( function(result) { currentPermission = result } );
+		mailNotification = new Notification("SATC", {
+			body : mesbody,
+			icon : "https://pp.vk.me/c7004/v7004148/23616/XwoiYEex0CQ.jpg"
+		});
+	}
+
 	// accept conditions
 	if (document.referrer == "http://cs.money/"){
-		if (confirm('Принять этот трейд?')){
-			acceptSteamTrade();
+		if(jQuery('.error_page_content h3').html() == "О не-е-е-е-е-е-е-т!"){
+			window.close();
+			chromemes("Оффер не действителен!");
+		}else{
+			if (confirm('Принять этот трейд?')){
+				acceptSteamTrade();
+			}
 		}
 	}else if (jQuery("#your_slot_0 .slot_inner").html() == ''){
 		acceptSteamTrade();
@@ -31,13 +46,21 @@
 	}else{
 		console.log("Что то не так!");
 	}
-	
+
 	// accept function
 	function acceptSteamTrade(){
 		setInterval(function(){
-			ToggleReady(true);
-			jQuery(".newmodal_buttons .btn_green_white_innerfade span").click();
-			ConfirmTradeOffer();
+			if (jQuery('.newmodal_content div').html() == "Для завершения обмена подтвердите его на странице подтверждений в мобильном приложении Steam."){
+				window.close();
+				console.log("Должен закрыть страницу!");
+				chromemes("Подтверди оффер в телефоне!");
+
+			}else{
+				jQuery(".newmodal").remove();
+				ToggleReady(true);
+				jQuery(".newmodal_buttons .btn_green_white_innerfade span").click();
+				ConfirmTradeOffer();
+			}
 		},2000);
 	};
 
