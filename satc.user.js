@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         AutoTrade Confirm
 // @namespace    https://github.com/BJIAST/SATC/
-// @version      1.2
+// @version      1.3
 // @description  try to take over the world!
 // @author       BJIAST
 // @match        https://steamcommunity.com/tradeoffer/*
@@ -28,6 +28,7 @@
 
 	// accept conditions
 	if (document.referrer == "http://cs.money/"){
+
 		if(jQuery('.error_page_content h3').html() == "О не-е-е-е-е-е-е-т!"){
 			window.close();
 			chromemes("Оффер не действителен!");
@@ -36,13 +37,19 @@
 				acceptSteamTrade();
 			}
 		}
-	}else if (jQuery("#your_slot_0 .slot_inner").html() == ''){
+
+	}
+	else if (jQuery("#your_slot_0 .slot_inner").html() == ''){
 		acceptSteamTrade();
-	}else if(site == steamsite[0] + "trade/" + steamsite[1]){
+	}
+	else if(site == steamsite[0] + "trade/" + steamsite[1]){
 		soundAccept.play();
 		setTimeout(function(){
 			window.close();
 		}, 3000);
+	}
+	else if(document.referrer == "https://opskins.com/?loc=sell"){
+		acceptSteamTrade();
 	}else{
 		console.log("Что то не так!");
 	}
