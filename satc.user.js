@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         AutoTrade Confirm
 // @namespace    https://github.com/BJIAST/SATC/
-// @version      1.3
+// @version      1.4
 // @description  try to take over the world!
 // @author       BJIAST
 // @match        https://steamcommunity.com/tradeoffer/*
