@@ -1,9 +1,9 @@
 // ==UserScript==
-// @name         AutoTrade Accept
-// @namespace    https://github.com/BJIAST/
+// @name         AutoTrade Confirm
+// @namespace    https://github.com/BJIAST/SATC/raw/master/satc.user.js
 // @version      0.1
 // @description  try to take over the world!
-// @author       You
+// @author       BJIAST
 // @match        https://steamcommunity.com/tradeoffer/*
 // @match 		 https://steamcommunity.com/trade/*
 // @grant        none
@@ -12,7 +12,7 @@
 (function() {
 	'use strict';
 	(function () {
-		var soundAccept = new Audio('/done.wav');
+		var soundAccept = new Audio('/sounds/done.wav/');
 		var site = location.href,
 		steamsite = location.href.split("trade/");
 		if (document.referrer == "http://cs.money/"){
@@ -36,12 +36,7 @@
 			ToggleReady(true);
 			jQuery(".newmodal_buttons .btn_green_white_innerfade span").click();
 			ConfirmTradeOffer();
-			if (offerWindow !== location.href){
-			window.close();
-		}else {
-			console.log('Возможно что то не так');
-		}
-	},2000);
+		},2000);
 	};
 
 })();
