@@ -12,7 +12,7 @@
 (function() {
 	'use strict';
 	(function () {
-		var soundAccept = new Audio('https://github.com/BJIAST/SATC/blob/master/sounds/done.wav');
+		var soundAccept = new Audio('https://raw.githubusercontent.com/BJIAST/SATC/master/sounds/done.mp3');
 		var site = location.href,
 		steamsite = location.href.split("trade/");
 		if (document.referrer == "http://cs.money/"){
@@ -23,9 +23,9 @@
 			acceptSteamTrade();
 		}else if(site == steamsite[0] + "trade/" + steamsite[1]){
 			soundAccept.play();
-			// setTimeout(function(){
-			// 	window.close();
-			// }, 3000);
+			setTimeout(function(){
+				window.close();
+			}, 3000);
 		}else{
 			console.log("Что то не так!");
 		}
