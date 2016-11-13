@@ -14,7 +14,8 @@
 
 	var soundAccept = new Audio('https://raw.githubusercontent.com/BJIAST/SATC/master/sounds/done.mp3'),
 	site = location.href,
-	steamsite = location.href.split("trade/");
+	steamsite = location.href.split("trade/"),
+	websendoff = location.href.split("trade/new");
 
 	// chrome messages
 	function chromemes(mesbody){
@@ -47,6 +48,9 @@
 		setTimeout(function(){
 			window.close();
 		}, 3000);
+	}
+	else if (site == websendoff[0] + "trade/new" + websendoff[1]){
+		console.log("Do nothing!");
 	}
 	else if(document.referrer == "https://opskins.com/?loc=sell"){
 		acceptSteamTrade();
