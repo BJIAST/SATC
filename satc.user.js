@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         AutoTrade Confirm
 // @namespace    https://github.com/BJIAST/SATC/
-// @version      1.531
+// @version      1.532
 // @description  try to take over the world!
 // @author       BJIAST
 // @match        https://steamcommunity.com/tradeoffer/*
@@ -135,9 +135,9 @@ function acceptSteamTrade(){
 			ConfirmTradeOffer();
 		
 		}else{
+            soundAccept.play();
             window.open('', '_self', ''); //bug fix
             window.close();
-            soundAccept.play();
             chromemes("Подтверди оффер в телефоне!");
 			return x = true;
         }
