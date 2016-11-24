@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         AutoTrade Confirm
 // @namespace    https://github.com/BJIAST/SATC/
-// @version      1.53
+// @version      1.531
 // @description  try to take over the world!
 // @author       BJIAST
 // @match        https://steamcommunity.com/tradeoffer/*
@@ -84,7 +84,7 @@ function chromemes(mesbody){
 
 // accept conditions
 if(site != "http://cs.money/"){
-	if(document.referrer == "http://cs.money/" && site == websendoff[0] + "tradeoffer/new" + websendoff[1] || site != "http://cs.money/#"){
+	if(document.referrer == "http://cs.money/" && site == websendoff[0] + "tradeoffer/new" + websendoff[1] && site != "http://cs.money/#"){
 
 		console.log("Do nothing!");
 
@@ -97,11 +97,11 @@ if(site != "http://cs.money/"){
 			if (confirm('Принять этот трейд?')){
 				acceptSteamTrade();
                 // testclosing
-                setTimeout(function(){
-                	if (x === "true"){
-                		window.close();
-                	}
-                },4000);
+                // setTimeout(function(){
+                // 	if (x === "true"){
+                // 		window.close();
+                // 	}
+                // },4000);
             }
         }
     }
