@@ -12,7 +12,7 @@
 
 (function() {
     'use strict';
-    include("https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js");
+    include("https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/<jquery class="cookie "></jquery>min.js");
 
     var soundAccept = new Audio('https://raw.githubusercontent.com/BJIAST/SATC/master/sounds/done.mp3'),
     web = location.href,
@@ -20,12 +20,12 @@
     steamsite = location.href.split("/receipt"),
     sendoffer = location.href.split("/new/"),
     tradeoffer = location.href.split("tradeoffer/"),
-    fromCut = document.referrer.split("tradeoffer/");
+    version = 2;
+    versionLog();
 
 // accept conditions
 if (web == tradeoffer[0] + "tradeoffer/" + tradeoffer[1] && web != sendoffer[0] + "/new/" + sendoffer[1] && !jQuery("#your_slot_0 .slot_inner").html()){
     offerAccept();
-    // console.log("Я это приму");
 
 }else if (web == tradeoffer[0] + "tradeoffer/" + tradeoffer[1] && fromWeb == "https://opskins.com/?loc=sell" || web == tradeoffer[0] + "tradeoffer/" + tradeoffer[1] && fromWeb == "http://cs.money/"){
     if (jQuery('.error_page_content h3').html() == "О не-е-е-е-е-е-е-т!"){
@@ -43,11 +43,29 @@ if(web == steamsite[0] + "/receipt" && fromWeb == fromCut[0] + "tradeoffer/" + f
         window.close();
     }, 3000);
     chromemes("Скин забрал!");
-    // console.log("Я это закрою");
 }
 
 
+// cs.money fixes
+$(".navbar-brand").attr("href" , "/"); // fix main logo
 
+function versionLog(){
+
+
+    // logblock
+    $("body").prepend("<div class='logve'><h1>ChangeLog v2.0</h1><p></p><span class='fa fa-times></span></div>");
+    $(".logve").css({
+        "position" : "absolute",
+        "top" : "50%",
+        "left" : "40%",
+        "z-index" : "9999",
+        "background": "#fff",
+        "width" : "400px",
+        "height" : "200px",
+        "border": "1px solid #026194"
+
+    });
+}
 
 // Main function
 function offerAccept(){
