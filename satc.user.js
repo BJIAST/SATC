@@ -12,8 +12,9 @@
 
 (function() {
     'use strict';
-    include("https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/<jquery class="cookie "></jquery>min.js");
-
+    include("https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js");
+    $('head').append('<link rel="stylesheet" href="https://raw.githubusercontent.com/BJIAST/SATC/develop/css/csm.css" type="text/css" />');
+    $('head').append('<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">');
     var soundAccept = new Audio('https://raw.githubusercontent.com/BJIAST/SATC/master/sounds/done.mp3'),
     web = location.href,
     fromWeb = document.referrer,
@@ -53,19 +54,8 @@ function versionLog(){
 
 
     // logblock
-    $("body").prepend("<div class='logve'><h1>ChangeLog v2.0</h1><p></p><span class='fa fa-times></span></div>");
-    $(".logve").css({
-        "position" : "absolute",
-        "top" : "50%",
-        "left" : "40%",
-        "z-index" : "9999",
-        "background": "#fff",
-        "width" : "400px",
-        "height" : "200px",
-        "border": "1px solid #026194"
-
-    });
-}
+    $("body").prepend("<div class='logve'><h1>ChangeLog v2.0</h1><p>12312312321</p><span class='close fa fa-times'>1</span></div>");
+ }
 
 // Main function
 function offerAccept(){
@@ -99,26 +89,4 @@ function chromemes(mesbody){
     });
 }
 // inside div with message
-function showlogs(logmes){
-    $(".logmessage").remove();
-    $("body").append("<div class='fa fa-check-circle logmessage'><span>" + " " + logmes + "</span></div>");
-    $(".logmessage").css({
-        "position" : "fixed",
-        "bottom" : "20px",
-        "right" : "10px",
-        "font-size" : "16px",
-        "padding": "10px 29px 8px 40px",
-        "border": "1px solid #026194",
-        "border-radius": "10px",
-        "-moz-border-radius": "10px",
-        "-webkit-border-radius": "10px",
-        "box-shadow": "2px 2px 3px #bbb",
-        "-moz-box-shadow": "2px 2px 3px #bbb",
-        "-webkit-box-shadow": "2px 2px 3px #bbb",
-        "background": "#fff",
-        "text-align":"justify",
-        "color": "#000"
-    });
-    $(".logmessage").fadeIn(300).delay(4500).fadeToggle(300);
-}
 })();
