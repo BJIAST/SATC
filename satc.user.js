@@ -9,12 +9,12 @@
 // @match        http://cs.money/
 // @grant        none
 // ==/UserScript==
-
 (function() {
     'use strict';
-    include("https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js");
-    $('head').append('<link rel="stylesheet" href="https://raw.githubusercontent.com/BJIAST/SATC/develop/css/csm.css" type="text/css" />');
     $('head').append('<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">');
+     $("link[href='css/all.min.css?v=8']").attr("href", "https://raw.githubusercontent.com/BJIAST/SATC/develop/css/csm.css");
+    include("https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js");
+
     var soundAccept = new Audio('https://raw.githubusercontent.com/BJIAST/SATC/master/sounds/done.mp3'),
     web = location.href,
     fromWeb = document.referrer,
@@ -54,8 +54,8 @@ function versionLog(){
 
 
     // logblock
-    $("body").prepend("<div class='logve'><h1>ChangeLog v2.0</h1><p>12312312321</p><span class='close fa fa-times'>1</span></div>");
- }
+    $("body").prepend("<div class='logve'><h1>ChangeLog v2.0</h1><p>12312312321</p><span class='close fa fa-times'></span></div>");
+}
 
 // Main function
 function offerAccept(){
