@@ -10,9 +10,12 @@
 // @grant        none
 // ==/UserScript==
 (function() {
+
     'use strict';
+
+
     $('head').append('<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">');
-     $("link[href='css/all.min.css?v=8']").attr("href", "https://raw.githubusercontent.com/BJIAST/SATC/develop/css/csm.css");
+    $('head').append('<link href="http://satc.usite.pro/csm.css" rel="stylesheet">');
     include("https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js");
 
     var soundAccept = new Audio('https://raw.githubusercontent.com/BJIAST/SATC/master/sounds/done.mp3'),
@@ -23,6 +26,7 @@
     tradeoffer = location.href.split("tradeoffer/"),
     version = 2;
     versionLog();
+
 
 // accept conditions
 if (web == tradeoffer[0] + "tradeoffer/" + tradeoffer[1] && web != sendoffer[0] + "/new/" + sendoffer[1] && !jQuery("#your_slot_0 .slot_inner").html()){
@@ -50,11 +54,20 @@ if(web == steamsite[0] + "/receipt" && fromWeb == fromCut[0] + "tradeoffer/" + f
 // cs.money fixes
 $(".navbar-brand").attr("href" , "/"); // fix main logo
 
+function onloadmod(){
+ if ($.cookie("changelog") != version){
+    $.removeCookie("changelog");
+    $(".logve").show();
+}
+}
 function versionLog(){
-
-
     // logblock
-    $("body").prepend("<div class='logve'><h1>ChangeLog v2.0</h1><p>12312312321</p><span class='close fa fa-times'></span></div>");
+    $("body").prepend("<div class='logve' style='display:none'><span class='closeMod fa fa-times'></span><h1>ChangeLog v2.0</h1>"+
+        '<ul><li><span>Переделана логика функций.</span></li>'+
+        '<li><span>Добавлены настройки сохраняемые в куки.</span></li>'+
+        '<li><span>Добавлены модальные окна.</span></li></ul>'+ 
+        '<span class="author">by BJIAST</span>'+
+        "</div>");
 }
 
 // Main function
@@ -88,5 +101,15 @@ function chromemes(mesbody){
         icon : "https://pp.vk.me/c7004/v7004148/23616/XwoiYEex0CQ.jpg"
     });
 }
-// inside div with message
+
+// popup mod functions
+(function () {
+    $(".closeMod").click(function(){
+        $.cookie("changelog", version);
+        $(".logve").hide();
+    });
+}());
+$( document ).ready(function() {
+ setTimeout(onloadmod(),1000);
+});
 })();
