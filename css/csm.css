@@ -5,7 +5,7 @@
     left: 30%;
     background: #fff;
     width: 650px;
-    height: 200px;
+    height: 300px;
     z-index: 99999;
     border: 3px solid;
 }
@@ -31,6 +31,9 @@
     margin-top: 28px;
 }
 .logve>ul{
+    margin-left: 20px;
+}
+.logve>ul li>.childul{
     margin-left: 20px;
 }
 .logve>.author,

@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         AutoTrade Confirm
 // @namespace    https://github.com/BJIAST/SATC/
-// @version      2
+// @version      2.01
 // @description  try to take over the world!
 // @author       BJIAST
 // @match        https://steamcommunity.com/tradeoffer/*
@@ -23,7 +23,7 @@
     sendoffer = location.href.split("/new/"),
     tradeoffer = location.href.split("tradeoffer/"),
     FromCut = document.referrer.split("tradeoffer/"),
-    version = 2;
+    version = 2.01;
 
     // onload csmoney use it
     function onloadmod(){
@@ -65,7 +65,7 @@ $('head').append('<link href="http://satc.usite.pro/csm.css" rel="stylesheet">')
 include("https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js");
 
 // csmoney settings button
-$(".trade_lg").append("<div class='make_trade_button' id='satcSetBtn'>Настройки</div>");
+$(".trade_lg").append("<div class='auto_select' id='satcSetBtn'>Настройки</div>");
 
 
 // csmoney popup's
@@ -210,10 +210,18 @@ function settingsMod(){
 }
 function versionLog(){
     // logblock
-    $("body").prepend("<div class='logve' style='display:none'><span class='closeModCL fa fa-times'></span><h1>ChangeLog v2.0</h1>"+
+    $("body").prepend("<div class='logve' style='display:none'><span class='closeModCL fa fa-times'></span><h1>ChangeLog v"+version+"</h1>"+
         '<ul><li><span>Переделана логика функций.</span></li>'+
         '<li><span>Добавлены настройки сохраняемые в куки.</span></li>'+
-        '<li><span>Добавлены модальные окна.</span></li></ul>'+ 
+        '<li><span>Сделаны мелкие фиксы ксмани.</span></li>'+
+        '<li><span>Добавлены модальные окна.</span></li>'+ 
+        '<li><span>Бот автоматически принимает офферы в таких случах:</span>'+
+            '<ul class="childul">'+
+                '<li>Если с вашей стороны нет скинов.</li>'+
+                '<li>Если оффер был открыт со страницы продажи на опсе.</li>'+
+                '<li><strike>Если оффер был открыт со страницы ксмани.</strike></li>'+
+            '</ul>'+
+        '</li></ul>'+ 
         '<span class="author">by BJIAST</span>'+
         "</div>");
 }
